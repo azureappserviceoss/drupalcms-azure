@@ -1,3 +1,4 @@
+
 Drupal for Azure App Service    [![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://azuredeploy.net/)
 
 This template support [MySQL in-app feature](https://blogs.msdn.microsoft.com/appserviceteam/2016/08/18/announcing-mysql-in-app-preview-for-web-apps/) on App service. Click on Deploy to Azure button above to start deployment. 
@@ -41,10 +42,12 @@ Once the app is successfully deployed and the drupal installer has completed the
 ```
 For the trusted host patterns:
 Open  “\core\lib\Drupal\Core\Site\Settings.php” and add below code:
+
+```
         $settings['trusted_host_patterns'] = array(
                     '^{host Url}$',
                     '^127\.20.\0.\1$',
                     '^localhost$',
         );
 
-
+```
