@@ -39,3 +39,12 @@ Once the app is successfully deployed and the drupal installer has completed the
         );
 
 ```
+For the trusted host patterns:
+Open  “\core\lib\Drupal\Core\Site\Settings.php” and add below code:
+        $settings['trusted_host_patterns'] = array(
+                    '^{host Url}$',
+                    '^127\.20.\0.\1$',
+                    '^localhost$',
+        );
+
+
