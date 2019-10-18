@@ -1,7 +1,7 @@
 name: 'Language entity field access test'
 type: module
 description: 'Support module for verifying entity field access and the language selector.'
-# core: 8.x
+core: 8.x
 package: Testing
 # version: VERSION
 dependencies:
@@ -11,8 +11,7 @@ dependencies:
   - drupal:filter
   - drupal:language
 
-# Information added by Drupal.org packaging script on 2019-05-23
-version: '8.7.2'
-core: '8.x'
+# Information added by Drupal.org packaging script on 2019-09-04
+version: '8.7.7'
 project: 'drupal'
-datestamp: 1558597129
+datestamp: 1567593218
