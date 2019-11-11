@@ -282,6 +282,15 @@ class MediaLibraryStateTest extends KernelTestBase {
   }
 
   /**
+   * @covers ::fromRequest
+   */
+  public function testFromRequestQueryLess() {
+    $this->setExpectedException(\InvalidArgumentException::class, 'The opener ID parameter is required and must be a string.');
+    $state = MediaLibraryState::fromRequest(new Request());
+    $this->assertInstanceOf(MediaLibraryState::class, $state);
+  }
+
+  /**
    * Data provider for testFromRequest().
    *
    * @return array
@@ -340,6 +349,40 @@ class MediaLibraryStateTest extends KernelTestBase {
     ];
 
     return $test_data;
+  }
+
+  /**
+   * @covers ::getOpenerParameters
+   */
+  public function testOpenerParameters() {
+    $state = MediaLibraryState::create('test', ['file'], 'file', -1, [
+      'foo' => 'baz',
+    ]);
+    $this->assertSame(['foo' => 'baz'], $state->getOpenerParameters());
+  }
+
+  /**
+   * Test that hash is unaffected by allowed media type order.
+   */
+  public function testHashUnaffectedByMediaTypeOrder() {
+    $state1 = MediaLibraryState::create('test', ['file', 'image'], 'image', 2);
+    $state2 = MediaLibraryState::create('test', ['image', 'file'], 'image', 2);
+    $this->assertSame($state1->getHash(), $state2->getHash());
+  }
+
+  /**
+   * Test that hash is unaffected by opener parameter order.
+   */
+  public function testHashUnaffectedByOpenerParamOrder() {
+    $state1 = MediaLibraryState::create('test', ['file'], 'file', -1, [
+      'foo' => 'baz',
+      'baz' => 'foo',
+    ]);
+    $state2 = MediaLibraryState::create('test', ['file'], 'file', -1, [
+      'baz' => 'foo',
+      'foo' => 'baz',
+    ]);
+    $this->assertSame($state1->getHash(), $state2->getHash());
   }
 
 }
