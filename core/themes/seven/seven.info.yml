@@ -18,7 +18,7 @@ description: 'The default administration theme for Drupal 8 was designed with cl
 alt text: 'Default administration theme for Drupal 8 with simple blocks and clean lines.'
 package: Core
 # version: VERSION
-# core: 8.x
+core: 8.x
 libraries:
  - seven/global-styling
 libraries-override:
@@ -31,7 +31,7 @@ libraries-override:
   core/drupal.vertical-tabs:
     css:
       component:
-        misc/vertical-tabs.css: false
+        /core/themes/stable/css/core/vertical-tabs.css: false
   core/jquery.ui:
     css:
       theme:
@@ -71,8 +71,7 @@ regions:
 regions_hidden:
   - sidebar_first
 
-# Information added by Drupal.org packaging script on 2019-05-23
-version: '8.7.2'
-core: '8.x'
+# Information added by Drupal.org packaging script on 2019-11-13
+version: '8.7.10'
 project: 'drupal'
-datestamp: 1558597129
+datestamp: 1573688104

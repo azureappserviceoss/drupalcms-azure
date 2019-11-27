@@ -3,7 +3,7 @@ type: theme
 description: 'A base theme with sensible default CSS classes added. Learn how to use Classy as a base theme in the <a href="https://www.drupal.org/docs/8/theming">Drupal 8 Theming Guide</a>.'
 package: Core
 # version: VERSION
-# core: 8.x
+core: 8.x
 hidden: true
 
 libraries:
@@ -23,8 +23,7 @@ libraries-extend:
   core/drupal.progress:
     - classy/progress
 
-# Information added by Drupal.org packaging script on 2019-05-23
-version: '8.7.2'
-core: '8.x'
+# Information added by Drupal.org packaging script on 2019-11-13
+version: '8.7.10'
 project: 'drupal'
-datestamp: 1558597129
+datestamp: 1573688104
